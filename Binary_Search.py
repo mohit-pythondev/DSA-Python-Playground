@@ -2,7 +2,7 @@ def binary_search(arr, target):
     start = 0
     end = len(arr) - 1
     while start <= end:
-        mid = (start + end) // 2
+        mid = start + (end - start) // 2 # to avoid overflow replace mid = (start + end) // 2
         if arr[mid] == target:
             return mid
         elif arr[mid] < target:
@@ -12,11 +12,16 @@ def binary_search(arr, target):
     return -1
 
 
-arr = [2, 4, 6, 8, 10]
-target = 8
-result = binary_search(arr, target)
 
-if result != -1:
-    print(f"Element {target} found at index {result}.")
-else:
-    print(f"Element {target} not found.")
+try:
+    arr = list(map(int, input("Enter the sorted array: ").split())) #eg: 2 4 6 8 10
+    target = int(input("Enter the target element: ")) 
+    result = binary_search(arr, target)
+    if result != -1:
+        print(f"Element {target} found at index {result}.")
+    else:
+        print(f"Element {target} not found.")
+except ValueError:
+    print("Invalid input. Please enter valid integers.")
+
+

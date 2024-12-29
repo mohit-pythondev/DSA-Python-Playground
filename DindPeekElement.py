@@ -2,7 +2,7 @@ class Solution(object):
     def findPeakElement(self, nums):
         """
         :type nums: List[int]
-        :rtype: int
+        :rtype: int 
         """
         if nums:
             start, end = 0, len(nums) - 1
